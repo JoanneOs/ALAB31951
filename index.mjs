@@ -95,6 +95,8 @@ app.get("/", (req, res) => {
 // API routes
 app.use("/grades", grades);
 
+
+
 // Global error handler
 app.use((err, _req, res, next) => {
   console.error(err.stack);
