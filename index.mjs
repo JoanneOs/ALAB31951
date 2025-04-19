@@ -10,31 +10,55 @@
 
 import express from "express";
 import dotenv from "dotenv";
-dotenv.config();
+
+//adding mangooseconn
+
+import connectDB from "./db/mongooseConn.mjs";
+
+
+
 import grades from "./routes/grades.mjs";
+import gradesAgg from "./routes/grades_agg.mjs";
+
+
+dotenv.config();
+//initilaizeing mongoose connction
+
+connectDB();
+
+// const PORT = process.env.PORT || 5050;
+// const app = express();
+
+// app.use(express.json());
+
+// // Root route
+// app.get("/", (req, res) => {
+//   res.send("Welcome to the API.");
+// });
+
+// // API routes
+// app.use("/grades", grades);
+
+// // Global error handler
+// app.use((err, _req, res, next) => {
+//   console.error(err.stack); // Log the error for debugging
+//   res.status(500).send("Seems like we messed up somewhere...");
+// });
+
+// // Start the Express server
+// app.listen(PORT, () => {
+//   console.log(`Server is running on port: ${PORT}`);
+// });
 
 const PORT = process.env.PORT || 5050;
 const app = express();
 
 app.use(express.json());
-
-// Root route
-app.get("/", (req, res) => {
-  res.send("Welcome to the API.");
-});
-
-// API routes
 app.use("/grades", grades);
+app.use("/grades-agg", gradesAgg);
 
-// Global error handler
-app.use((err, _req, res, next) => {
-  console.error(err.stack); // Log the error for debugging
-  res.status(500).send("Seems like we messed up somewhere...");
-});
-
-// Start the Express server
 app.listen(PORT, () => {
-  console.log(`Server is running on port: ${PORT}`);
+  console.log(`Server running on port ${PORT}`);
 });
 
 ///////1//////
