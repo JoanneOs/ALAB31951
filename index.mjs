@@ -36,3 +36,9 @@ app.use((err, _req, res, next) => {
 app.listen(PORT, () => {
   console.log(`Server is running on port: ${PORT}`);
 });
+
+///////1//////
+//starting mangoDB to mangoos
+//to install mangoose had to sudo chown -R $USER:$USER ~/.npm
+//////2//////
+//package.json adding mangoose
