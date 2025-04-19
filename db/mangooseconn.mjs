@@ -21,6 +21,8 @@ dotenv.config();
 // let db = conn.db("sample_training");
 // export default db;
 
+//mongoose.connect() instead of MongoClient
+
 
 const connectDB = async () => {
   try {
@@ -39,3 +41,4 @@ const connectDB = async () => {
 
 // Export the connection promise
 export default connectDB();
+
